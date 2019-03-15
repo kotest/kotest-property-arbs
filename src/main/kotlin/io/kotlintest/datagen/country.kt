@@ -159,7 +159,7 @@ data class Country(val name: String,
     val Netherlands = Country("Netherlands", 528, "NL", "NLD", Continent.Europe)
     val NetherlandsAntilles = Country("Netherlands Antilles", 530, "AN", "ANT", Continent.SouthAmerica)
     val Caledonia = Country(" Caledonia", 540, "NC", "NCL", Continent.Oceania)
-    val Zealand = Country(" Zealand", 554, "NZ", "NZL", Continent.Oceania)
+    val NewZealand = Country("New Zealand", 554, "NZ", "NZL", Continent.Oceania)
     val Nicaragua = Country("Nicaragua", 558, "NI", "NIC", Continent.SouthAmerica)
     val Niger = Country("Niger", 562, "NE", "NER", Continent.Africa)
     val Nigeria = Country("Nigeria", 566, "NG", "NGA", Continent.Africa)
@@ -400,7 +400,7 @@ data class Country(val name: String,
         Netherlands,
         NetherlandsAntilles,
         Caledonia,
-        Zealand,
+        NewZealand,
         Nicaragua,
         Niger,
         Nigeria,
