@@ -1,4 +1,4 @@
-package io.kotlintest.datagen
+package io.kotest.datagen
 
 /**
  * Instances of [Producer] are used to produce data for testing.
