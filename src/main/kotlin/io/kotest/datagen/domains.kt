@@ -8,7 +8,7 @@ import kotlin.random.Random
  */
 object DomainProducer : Producer<Domain> {
    private val prefixes = listOf("www", "www2", "cdn", null)
-   private val tlds = javaClass.getResourceAsStream("/country_tlds.txt").bufferedReader().readLines()
+   private val tlds = loadResourceAsLines("/country_tlds.txt")
    private val az = 'a'..'z'
    override fun produce(): Domain {
       val prefix = prefixes.random()
