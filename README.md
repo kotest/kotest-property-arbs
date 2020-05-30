@@ -9,7 +9,9 @@ Fake data producers for use in tests (or in your applications)
 | Producer  	| Details  	|
 |---	|---	|
 | FirstNameProducer | Produces random english or hispanic first names |
-| LastNameProducer | Products random last names based on US census data |
+| LastNameProducer | Produes random last names based on US census data |
+| ColorProducer | Produces random named colours, eg, midnight blue |
+| BrandProducer | Produces random brand names, eg Betty Crocker |
 | VineyardProducer	| Produces random vineyard names, eg `Château Montus Prestige` |
 | RegionProducer	| Produces a random wine region, eg `Chassagne-Montrachet` |
 | WineProducer | Combines several wine details producers to return full wine objects |
