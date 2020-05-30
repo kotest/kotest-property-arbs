@@ -9,7 +9,12 @@ Fake data producers for use in tests (or in your applications)
 | Producer  	| Details  	|
 |---	|---	|
 | FirstNameProducer | Produces random english or hispanic first names |
-| LastNameProducer | Produes random last names based on US census data |
+| LastNameProducer | Produces random last names based on US census data |
+| NameProducer | Produces random first and last names |
+| StockExchangeProducer | Produces random stock exchanges, eg `New York Stock Exchange / NYSE / US` |
+| DomainProducer | Produces random domain names, eg `www.wibble.co.uk` |
+| CountryProducer | Produces random country objects, eg `Botswana / BW / Africa` |
+| ContinentProducer | Produces random continents from the list of seven |
 | ColorProducer | Produces random named colours, eg, midnight blue |
 | BrandProducer | Produces random brand names, eg Betty Crocker |
 | GoogleTaxonomyProducer | Produces random google product categories, eg `Furniture > Office Furniture > Desks` |
