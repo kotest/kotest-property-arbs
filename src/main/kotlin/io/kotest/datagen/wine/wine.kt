@@ -3,31 +3,32 @@ package io.kotest.datagen.wine
 import io.kotest.datagen.Name
 import io.kotest.datagen.NameProducer
 import io.kotest.datagen.Producer
+import io.kotest.datagen.loadResourceAsLines
 import kotlin.random.Random
 
 object VineyardProducer : Producer<Vineyard> {
-   private val vineyards = javaClass.getResourceAsStream("/wine/vineyards.txt").bufferedReader().readLines()
+   private val vineyards = loadResourceAsLines("/wine/vineyards.txt")
    override fun produce(): Vineyard {
       return Vineyard(vineyards.random())
    }
 }
 
 object RegionProducer : Producer<Region> {
-   private val regions = javaClass.getResourceAsStream("/wine/region.txt").bufferedReader().readLines()
+   private val regions = loadResourceAsLines("/wine/region.txt")
    override fun produce(): Region {
       return Region(regions.random())
    }
 }
 
 object WineryProducer : Producer<Winery> {
-   private val regions = javaClass.getResourceAsStream("/wine/winery.txt").bufferedReader().readLines()
+   private val regions = loadResourceAsLines("/wine/winery.txt")
    override fun produce(): Winery {
       return Winery(regions.random())
    }
 }
 
 object VarietyProducer : Producer<Variety> {
-   private val regions = javaClass.getResourceAsStream("/wine/variety.txt").bufferedReader().readLines()
+   private val regions = loadResourceAsLines("/wine/variety.txt")
    override fun produce(): Variety {
       return Variety(regions.random())
    }
