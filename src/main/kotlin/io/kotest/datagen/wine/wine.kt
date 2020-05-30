@@ -1,5 +1,6 @@
 package io.kotest.datagen.wine
 
+import io.kotest.datagen.HarryPotterCharacterProducer
 import io.kotest.datagen.Name
 import io.kotest.datagen.NameProducer
 import io.kotest.datagen.Producer
@@ -51,6 +52,10 @@ object WineReviewProducer : Producer<WineReview> {
       WineReview(wine, Random.nextDouble(0.1, 5.0), name)
    }
    override fun produce(): WineReview = producer.produce()
+}
+
+fun main() {
+   WineReviewProducer.take(100).forEach(::println)
 }
 
 data class Wine(val vineyard: Vineyard, val variety: Variety, val winery: Winery, val region: Region, val year: Int)

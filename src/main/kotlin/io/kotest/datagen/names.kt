@@ -19,3 +19,7 @@ object LastNameProducer : Producer<LastName> {
 }
 
 val NameProducer = FirstNameProducer.zip(LastNameProducer) { a, b -> Name(a, b) }
+
+fun main() {
+   NameProducer.take(100).forEach(::println)
+}

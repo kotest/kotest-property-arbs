@@ -19,12 +19,16 @@ data class Sku(val value: String)
 data class Gtin(val value: String)
 
 val ProductProducer = ColorProducer.zip(BrandProducer, GoogleTaxonomyProducer) { color, brand, taxonomy ->
+
+   val sku = List(3) { ('A'..'Z').random() }.joinToString("") + List(8) { Random.nextInt(0, 10) }.joinToString("")
+   val gtin = List(12) { Random.nextInt(0, 10) }.joinToString("")
+
    Product(
-       sku = Sku(List(3) { ('A'..'Z').random() }.joinToString() + List(8) { Random.nextInt(0, 10) }.joinToString()),
+       sku = Sku(sku),
        brand = brand,
-       gtin = Gtin(List(12) { Random.nextInt(0, 10) }.joinToString()),
-       price = Random.nextInt(1, 10000),
-       quantity = Random.nextInt(0, 100),
+       gtin = Gtin(gtin),
+       price = Random.nextInt(1000, 25000),
+       quantity = Random.nextInt(0, 999),
        material = listOf("wool", "leather", "silk", "jersey", "cotton", "nylon").random(),
        color = color,
        size = listOf("XS", "S", "M", "L", "XL", "XXL", "XXXL").random(),
@@ -49,4 +53,8 @@ val ProductProducer = ColorProducer.zip(BrandProducer, GoogleTaxonomyProducer) {
        ).random(),
        taxonomy = taxonomy
    )
+}
+
+fun main() {
+   ProductProducer.take(100).forEach(::println)
 }
