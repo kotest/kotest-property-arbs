@@ -3,8 +3,6 @@ language: java
 jdk:
 - openjdk11
 
-sudo: false
-
 before_cache:
 - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
 - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
@@ -18,3 +16,5 @@ cache:
 install: "/bin/true"
 
 script: "./gradlew test"
+
+after_success: "./snapshot_deploy.sh"
