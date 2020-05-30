@@ -1,4 +1,4 @@
-package io.kotlintest.datagen
+package io.kotest.datagen
 
 @Suppress("MemberVisibilityCanBePrivate")
 data class Country(val name: String,

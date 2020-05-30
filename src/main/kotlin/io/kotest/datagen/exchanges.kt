@@ -1,4 +1,4 @@
-package io.kotlintest.datagen
+package io.kotest.datagen
 
 data class StockExchange(val name: String, val symbol: String, val country: Country) {
   companion object {

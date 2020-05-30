@@ -1,4 +1,4 @@
-package io.kotlintest.datagen
+package io.kotest.datagen
 
 enum class Continent {
   Africa,
