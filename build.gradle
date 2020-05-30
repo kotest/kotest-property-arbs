@@ -40,4 +40,4 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib"
 }
 
-apply from: '../publish.gradle'
+apply from: './publish.gradle'
