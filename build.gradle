@@ -25,6 +25,10 @@ repositories {
     mavenLocal()
 }
 
+dependencies {
+    implementation("com.univocity:univocity-parsers:2.8.4")
+}
+
 sourceCompatibility = 1.6
 targetCompatibility = 1.6
 
