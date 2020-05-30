@@ -12,7 +12,7 @@ Fake data producers for use in tests (or in your applications)
 | LastNameProducer | Produes random last names based on US census data |
 | ColorProducer | Produces random named colours, eg, midnight blue |
 | BrandProducer | Produces random brand names, eg Betty Crocker |
-| GoogleTaxonomyProducer | Produces random google product categories, eg `Home & Garden > Kitchen & Dining > Kitchen Tools & Utensils` |
+| GoogleTaxonomyProducer | Produces random google product categories, eg `Furniture > Office Furniture > Desks` |
 | VineyardProducer	| Produces random vineyard names, eg `Château Montus Prestige` |
 | RegionProducer	| Produces a random wine region, eg `Chassagne-Montrachet` |
 | WineProducer | Combines several wine details producers to return full wine objects |
