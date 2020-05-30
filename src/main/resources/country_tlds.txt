@@ -51,7 +51,8 @@
 .cn
 .cx
 .cc
-.co
+.co.uk
+.co.jp
 .km
 .cd
 .cg
@@ -124,7 +125,7 @@
 .kz
 .ke
 .ki
-.al is used)
+.al
 .kw
 .kg
 .la
@@ -210,8 +211,7 @@
 .sl
 .sg
 .bq
-.sx / .an
-.sk
+.sx
 .si
 .sb
 .so
