@@ -19,7 +19,8 @@ repositories {
    mavenLocal()
 }
 
-group = "io.kotest"
+group = Libs.org
+version = Ci.version
 
 kotlin {
   targets {
