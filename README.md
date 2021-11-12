@@ -12,24 +12,29 @@ Many of these arb's take real data sets and combine them in random ways to incre
 
 | Arb  	| Details  	|
 |---	|---	|
-| FirstNameProducer | Produces random english or hispanic first names |
-| LastNameProducer | Produces random last names based on US census data |
-| NameProducer | Produces random first and last names |
+| Arb.firstName() | Produces random english or hispanic first names |
+| Arb.lastName() | Produces random last names based on US census data |
+| Arb.name() | Produces random first and last names |
 |	|	|
-| StockExchangeProducer | Produces random stock exchanges, eg `New York Stock Exchange / NYSE / US` |
-| DomainProducer | Produces random domain names, eg `www.wibble.co.uk` |
-| CountryProducer | Produces random country objects, eg `Botswana / BW / Africa` |
-| ContinentProducer | Produces random continents from the list of seven |
-| HarryPotterCharacterProducer | Combines wine producer and adds in random review scores and usernames |
+| Arb.stockExchanges() | Produces random stock exchanges, eg `New York Stock Exchange / NYSE / US` |
+| Arb.domain() | Produces random domain names, eg `www.wibble.co.uk` |
+| Arb.country() | Produces random country objects, eg `Botswana / BW / Africa` |
+| Arb.continent() | Produces random continents from the list of seven |
+| Arb.harryPotterCharacter() | Combines wine producer and adds in random review scores and usernames |
 |	|	|
-| ColorProducer | Produces random named colours, eg, midnight blue |
-| BrandProducer | Produces random brand names, eg Betty Crocker |
-| GoogleTaxonomyProducer | Produces random google product categories, eg `Furniture > Office Furniture > Desks` |
+| Arb.color() | Produces random named colours, eg, midnight blue |
+| Arb.brand() | Produces random brand names, eg Betty Crocker |
+| Arb.products() | Produces random google product categories, eg `Furniture > Office Furniture > Desks` |
 |	|	|
-| VineyardProducer	| Produces random vineyard names, eg `Château Montus Prestige` |
-| RegionProducer	| Produces a random wine region, eg `Chassagne-Montrachet` |
-| WineProducer | Combines several wine details producers to return full wine objects |
-| WineReviewProducer | Combines wine producer and adds in random review scores and usernames |
+| Arb.vineyards()	| Produces random vineyard names, eg `Château Montus Prestige` |
+| Arb.wineRegions()	| Produces a random wine region, eg `Chassagne-Montrachet` |
+| Arb.wines() | Combines several wine details producers to return full wine objects |
+| Arb.wineReviews()  | Combines wine producer and adds in random review scores and usernames |
 |	|	|
-| tube.StationProducer | Produces randomly selected London underground tube stations |
-| tube.JourneyProducer | Generates random journeys from a randomly selected start and end underground station |
+| Arb.station() | Produces randomly selected London underground tube stations |
+| Arb.journey() | Generates random journeys from a randomly selected start and end underground station |
+| | |
+| Arb.cluedoSuspects() | Clue/Cluedo suspects |
+| Arb.cluedoWeapons() | Clue/Cluedo weapons |
+| Arb.cluedoLocations() | Clue/Cluedo locations |
+| Arb.cluedoAccusation() | Clue/Cluedo accusations |
