@@ -3,8 +3,9 @@
 [![Build Status](https://travis-ci.org/kotest/kotest-datagen.svg?branch=master)](https://travis-ci.org/kotest/kotest-datagen)
 [<img src="https://img.shields.io/nexus/s/https/oss.sonatype.org/io.kotest.datagen/kotest-datagen.svg?label=latest%20snapshot&style=plastic"/>](https://oss.sonatype.org/content/repositories/snapshots/io/kotest/datagen/)
 
-Data producers for use in tests (or in your applications) that produce either randomized generated data (eg stock prices), or randomly selected values from existing datasets (brand names).
-Many producers take real data sets and combine them in random ways to increase the number of samples. For example, first and last name producers are based on real datasets, but full name producers combine these in a random way. 
+A collection of Kotest `Arb`'s for many different domains, such as stock prices, brand names, wine reviews, countries, tube stations and so on.
+
+Many of these arb's take real data sets and combine them in random ways to increase the number of samples. For example, the `FullName` arb takes a real set of first and last names and combines them randomly to produce full names.
 
 
 | Producer  	| Details  	|
