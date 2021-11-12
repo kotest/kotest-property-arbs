@@ -34,7 +34,7 @@ Many of these arb's take real data sets and combine them in random ways to incre
 | Arb.station() | Produces randomly selected London underground tube stations |
 | Arb.journey() | Generates random journeys from a randomly selected start and end underground station |
 | | |
-| Arb.cluedoSuspects() | Clue/Cluedo suspects |
-| Arb.cluedoWeapons() | Clue/Cluedo weapons |
-| Arb.cluedoLocations() | Clue/Cluedo locations |
-| Arb.cluedoAccusation() | Clue/Cluedo accusations |
+| Arb.cluedoSuspects() | Clue/Cluedo suspects, eg `Professor Plum` |
+| Arb.cluedoWeapons() | Clue/Cluedo weapons, eg `Lead piping` |
+| Arb.cluedoLocations() | Clue/Cluedo locations, eg `Ballroom` |
+| Arb.cluedoAccusation() | Clue/Cluedo accusations, eg, `Mrs White / Billiards Room / Rope` |
