@@ -54,10 +54,10 @@ data class CluedoAccusation(
   val correctGuess: Boolean,
 )
 
-fun Arb.Companion.cluedoCharacters() = Arb.of(CluedoSuspect.all)
+fun Arb.Companion.cluedoSuspects() = Arb.of(CluedoSuspect.all)
 fun Arb.Companion.cluedoWeapons() = Arb.of(CluedoWeapon.all)
 fun Arb.Companion.cluedoLocations() = Arb.of(CluedoLocation.all)
-fun Arb.Companion.cluedoAccusation() = cluedoCharacters().flatMap { suspect ->
+fun Arb.Companion.cluedoAccusations() = cluedoSuspects().flatMap { suspect ->
   cluedoWeapons().flatMap { weapon ->
     cluedoLocations().flatMap { location ->
       arbitrary {

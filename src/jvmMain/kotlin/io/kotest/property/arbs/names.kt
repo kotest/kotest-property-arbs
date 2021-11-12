@@ -14,4 +14,4 @@ private val lastNames = lazy { loadResourceAsLines("/last_names.txt") }
 
 fun Arb.Companion.firstName() = arbitrary { FirstName(firstNames.value.random(it.random)) }
 fun Arb.Companion.lastName() = arbitrary { LastName(lastNames.value.random(it.random)) }
-fun Arb.Companion.name() = firstName().flatMap { first -> lastName().map { last -> Name(first, last) } }
+  fun Arb.Companion.name() = firstName().flatMap { first -> lastName().map { last -> Name(first, last) } }

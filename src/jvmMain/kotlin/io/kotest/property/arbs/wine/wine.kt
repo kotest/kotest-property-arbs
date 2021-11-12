@@ -30,7 +30,7 @@ fun Arb.Companion.wines() = vineyards().flatMap { vineyard ->
   }
 }
 
-fun Arb.Companion.wineReviews() = wines().flatMap { wine ->
+fun Arb.Companion.wineReviews() = wines().  flatMap { wine ->
   name().map { name ->
     WineReview(wine, Random.nextDouble(0.1, 5.0), name)
   }
