@@ -1,4 +1,4 @@
-package io.kotest.property.arbs
+package io.kotest.property.arbs.geo
 
 import io.kotest.property.Arb
 import io.kotest.property.arbitrary.of

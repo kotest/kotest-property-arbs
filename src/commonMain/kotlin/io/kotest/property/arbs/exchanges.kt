@@ -2,7 +2,7 @@ package io.kotest.property.arbs
 
 import io.kotest.property.Arb
 import io.kotest.property.arbitrary.arbitrary
-import io.kotest.property.geo.Country
+import io.kotest.property.arbs.geo.Country
 
 data class StockExchange(val name: String, val symbol: String, val country: Country) {
    companion object {

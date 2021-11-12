@@ -4,7 +4,7 @@ import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.PropTestConfig
-import io.kotest.property.geo.Country
+import io.kotest.property.arbs.geo.Country
 import io.kotest.property.checkAll
 
 class StockExchangeTest : FunSpec() {

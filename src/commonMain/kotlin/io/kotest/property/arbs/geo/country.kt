@@ -1,8 +1,7 @@
-package io.kotest.property.geo
+package io.kotest.property.arbs.geo
 
 import io.kotest.property.Arb
 import io.kotest.property.arbitrary.of
-import io.kotest.property.arbs.Continent
 
 @Suppress("MemberVisibilityCanBePrivate")
 data class Country(
