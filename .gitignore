@@ -13,8 +13,8 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
-.idea
 *.iml
+build/
 
 # Package Files #
 *.war
