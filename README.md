@@ -8,7 +8,7 @@ A collection of Kotest `Arb`'s for many different domains, such as stock prices,
 Many of these arb's take real data sets and combine them in random ways to increase the number of samples. For example, the `FullName` arb takes a real set of first and last names and combines them randomly to produce full names.
 
 
-| Producer  	| Details  	|
+| Arb  	| Details  	|
 |---	|---	|
 | FirstNameProducer | Produces random english or hispanic first names |
 | LastNameProducer | Produces random last names based on US census data |
