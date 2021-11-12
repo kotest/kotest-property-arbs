@@ -1,18 +1,18 @@
-package io.kotest.datagen
+package io.kotest.property.arbs
 
 import kotlin.random.Random
 
 data class Product(
-    val sku: Sku,
-    val brand: Brand,
-    val gtin: Gtin,
-    val price: Int, // cents
-    val quantity: Int,
-    val material: String,
-    val color: Color?,
-    val size: String,
-    val name: String,
-    val taxonomy: GoogleTaxonomy
+   val sku: Sku,
+   val brand: Brand,
+   val gtin: Gtin,
+   val price: Int, // cents
+   val quantity: Int,
+   val material: String,
+   val color: Color?,
+   val size: String,
+   val name: String,
+   val taxonomy: GoogleTaxonomy
 )
 
 data class Sku(val value: String)

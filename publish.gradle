@@ -35,13 +35,13 @@ publishing {
 
       pom {
         name = 'hoplite'
-        description = 'Configuration for Kotlin'
-        url = 'http://www.github.com/sksamuel/hoplite'
+        description = 'Collection of Arbs for Kotest'
+        url = 'https://www.github.com/kotest/kotest-property-arbs'
 
         scm {
-          connection = 'scm:git:http://www.github.com/sksamuel/hoplite'
-          developerConnection = 'scm:git:http://github.com/sksamuel'
-          url = 'http://www.github.com/sksamuel/hoplite'
+          connection = 'scm:git:https://www.github.com/kotest/kotest-property-arbs'
+          developerConnection = 'scm:git:https://github.com/sksamuel'
+          url = 'https://www.github.com/kotest/kotest-property-arbs'
         }
 
         licenses {

@@ -1,4 +1,4 @@
-package io.kotest.datagen
+package io.kotest.property.arbs
 
 import kotlin.random.Random
 

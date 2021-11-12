@@ -1,4 +1,4 @@
-package io.kotest.datagen
+package io.kotest.property.arbs
 
 /**
  * Instances of [Producer] are used to produce data for testing.

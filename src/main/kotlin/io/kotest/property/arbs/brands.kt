@@ -1,4 +1,4 @@
-package io.kotest.datagen
+package io.kotest.property.arbs
 
 object BrandProducer : Producer<Brand> {
    private val brands = loadResourceAsLines("/brands.txt")

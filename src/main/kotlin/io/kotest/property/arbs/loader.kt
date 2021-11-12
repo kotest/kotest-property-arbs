@@ -1,4 +1,4 @@
-package io.kotest.datagen
+package io.kotest.property.arbs
 
 fun loadResource(resource: String) = object {}.javaClass.getResourceAsStream(resource)
 

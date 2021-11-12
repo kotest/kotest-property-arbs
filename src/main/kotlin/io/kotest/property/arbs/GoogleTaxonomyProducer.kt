@@ -1,4 +1,4 @@
-package io.kotest.datagen
+package io.kotest.property.arbs
 
 object GoogleTaxonomyProducer : Producer<GoogleTaxonomy> {
    private val brands = loadResourceAsLines("/gpc.txt")

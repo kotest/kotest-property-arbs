@@ -1,4 +1,4 @@
-package io.kotest.datagen
+package io.kotest.property.arbs
 
 data class StockExchange(val name: String, val symbol: String, val country: Country) {
   companion object {

@@ -1,10 +1,10 @@
-package io.kotest.datagen.wine
+package io.kotest.property.arbs.wine
 
-import io.kotest.datagen.HarryPotterCharacterProducer
-import io.kotest.datagen.Name
-import io.kotest.datagen.NameProducer
-import io.kotest.datagen.Producer
-import io.kotest.datagen.loadResourceAsLines
+import io.kotest.property.arbs.HarryPotterCharacterProducer
+import io.kotest.property.arbs.Name
+import io.kotest.property.arbs.NameProducer
+import io.kotest.property.arbs.Producer
+import io.kotest.property.arbs.loadResourceAsLines
 import kotlin.random.Random
 
 object VineyardProducer : Producer<Vineyard> {
@@ -40,7 +40,8 @@ object WineProducer : Producer<Wine> {
    private val producer = VineyardProducer.zip(
        RegionProducer,
        WineryProducer,
-       VarietyProducer) { vineyard, region, winery, variety ->
+       VarietyProducer
+   ) { vineyard, region, winery, variety ->
       Wine(vineyard, variety, winery, region, Random.nextInt(1920, 2020))
    }
 

@@ -1,4 +1,4 @@
-package io.kotest.datagen
+package io.kotest.property.arbs
 
 object HarryPotterCharacterProducer : Producer<Name> {
    private val first = loadResourceAsLines("/harrypotter_first_names.csv")

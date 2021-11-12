@@ -1,11 +1,12 @@
-package io.kotest.datagen
+package io.kotest.property.arbs
 
 @Suppress("MemberVisibilityCanBePrivate")
 data class Country(val name: String,
                    val isoNumber3: Int,
                    val isoAlpha2: String,
                    val isoAlpha3: String,
-                   val continent: Continent) {
+                   val continent: Continent
+) {
   companion object {
     val Afghanistan = Country("Afghanistan", 4, "AF", "AFG", Continent.Asia)
     val Albania = Country("Albania", 8, "AL", "ALB", Continent.Europe)

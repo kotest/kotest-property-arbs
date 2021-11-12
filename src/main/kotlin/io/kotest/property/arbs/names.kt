@@ -1,4 +1,4 @@
-package io.kotest.datagen
+package io.kotest.property.arbs
 
 data class FirstName(val name: String)
 data class LastName(val name: String)

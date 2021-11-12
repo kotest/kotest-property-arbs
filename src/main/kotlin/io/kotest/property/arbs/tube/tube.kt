@@ -1,8 +1,8 @@
-package io.kotest.datagen.tube
+package io.kotest.property.arbs.tube
 
 import com.univocity.parsers.csv.CsvParserSettings
-import io.kotest.datagen.Producer
-import io.kotest.datagen.loadResource
+import io.kotest.property.arbs.Producer
+import io.kotest.property.arbs.loadResource
 import java.time.LocalDateTime
 import kotlin.random.Random
 
@@ -18,7 +18,8 @@ object StationProducer : Producer<Station> {
 
    private val settings = CsvParserSettings().apply { this.isHeaderExtractionEnabled = true }
    private val stations = com.univocity.parsers.csv.CsvParser(settings).parseAllRecords(
-       loadResource("/tube/stations.csv"))
+       loadResource("/tube/stations.csv")
+   )
        .map {
           Station(
               it.getLong("id"),
@@ -43,7 +44,8 @@ data class Journey(val start: Station,
                    val date: LocalDateTime,
                    val durationMinutes: Int,
                    val farePence: Int,
-                   val method: FareMethod)
+                   val method: FareMethod
+)
 
 object JourneyProducer : Producer<Journey> {
 
@@ -56,8 +58,8 @@ object JourneyProducer : Producer<Journey> {
           .minusSeconds(Random.nextLong(60 * 60 * 24))
 
       return Journey(
-          stations.produce(),
-          stations.produce(),
+          StationProducer.produce(),
+          StationProducer.produce(),
           date,
           Random.nextInt(1, 59),
           Random.nextInt(0, 65) * 10,
