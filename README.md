@@ -45,3 +45,6 @@ Many of these arb's take real data sets and combine them in random ways to incre
 | Arb.cluedoLocations() | Clue/Cluedo locations, eg `Ballroom` |
 | Arb.cluedoAccusation() | Clue/Cluedo accusations, eg, `Mrs White / Billiards Room / Rope` |
 | Arb.monopolyProperty() | Random (US version) monopoly property with rent, price and color |
+| Arb.chessPiece() | Chess piece with points |
+| Arb.chessSquare() | Chesss square with file A-H and rank 1-8 |
+| Arb.chessMove() | Chess move from square to square with captured piece if any. No validation is performed to check the move is legal. |
