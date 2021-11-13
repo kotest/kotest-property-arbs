@@ -17,9 +17,12 @@ Many of these arb's take real data sets and combine them in random ways to incre
 | Arb.name() | Produces random first and last names |
 |	|	|
 | Arb.stockExchanges() | Produces random stock exchanges, eg `New York Stock Exchange / NYSE / US` |
+
 | Arb.domain() | Produces random domain names, eg `www.wibble.co.uk` |
 | Arb.country() | Produces random country objects, eg `Botswana / BW / Africa` |
 | Arb.continent() | Produces random continents from the list of seven |
+| Arb.zipcode() | Random zipcodes from 01000 to 99999, without validating they are exant |
+
 | Arb.harryPotterCharacter() | Combines wine producer and adds in random review scores and usernames |
 |	|	|
 | Arb.color() | Produces random named colours, eg, midnight blue |
