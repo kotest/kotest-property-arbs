@@ -49,10 +49,10 @@ private val stations = CsvParser(settings)
     )
   }
 
-fun Arb.Companion.station() = arbitrary { stations.random(it.random) }
+fun Arb.Companion.tubeStation() = arbitrary { stations.random(it.random) }
 
-fun Arb.Companion.journey() = Arb.station().flatMap { stationA ->
-  Arb.station().map { stationB ->
+fun Arb.Companion.tubeJourney() = Arb.tubeStation().flatMap { stationA ->
+  Arb.tubeStation().map { stationB ->
 
     val date = LocalDateTime.of(2020, 12, 31, 23, 59, 59)
       .minusDays(Random.nextLong(365 * 20))
