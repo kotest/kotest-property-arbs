@@ -34,8 +34,8 @@ Many of these arb's take real data sets and combine them in random ways to incre
 | Arb.wines() | Combines several wine details producers to return full wine objects |
 | Arb.wineReviews()  | Combines wine producer and adds in random review scores and usernames |
 |	|	|
-| Arb.station() | Produces randomly selected London underground tube stations |
-| Arb.journey() | Generates random journeys from a randomly selected start and end underground station |
+| Arb.tubeStation() | Produces randomly selected London underground tube stations |
+| Arb.tubeJourney() | Generates random journeys from a randomly selected start and end underground station |
 | Arb.airport() | Random real world airport with IATA code |
 | Arb.airline() | Random real world airline |
 | Arb.airJourney() | Random airtrips between two airports with an airline and times |
