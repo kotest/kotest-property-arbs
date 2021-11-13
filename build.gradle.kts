@@ -43,6 +43,7 @@ kotlin {
         implementation(Libs.stdLib)
         implementation(Libs.Kotest.property)
         implementation("com.univocity:univocity-parsers:2.9.1")
+        implementation("io.kotest:kotest-property-datetime:4.6.3")
       }
     }
     val jvmTest by getting {

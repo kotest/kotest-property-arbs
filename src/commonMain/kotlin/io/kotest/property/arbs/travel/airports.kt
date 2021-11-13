@@ -1,5 +1,8 @@
 package io.kotest.property.arbs.travel
 
+import io.kotest.property.Arb
+import io.kotest.property.arbitrary.of
+
 data class Airport(
   val name: String,
   val lat: Double,
@@ -391,3 +394,5 @@ data class Airport(
     )
   }
 }
+
+fun Arb.Companion.airport() = Arb.of(Airport.all)
