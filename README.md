@@ -33,8 +33,12 @@ Many of these arb's take real data sets and combine them in random ways to incre
 |	|	|
 | Arb.station() | Produces randomly selected London underground tube stations |
 | Arb.journey() | Generates random journeys from a randomly selected start and end underground station |
+| Arb.airport() | Random real world airport with IATA code |
+| Arb.airline() | Random real world airline |
+| Arb.airJourney() | Random airtrips between two airports with an airline and times |
 | | |
 | Arb.cluedoSuspects() | Clue/Cluedo suspects, eg `Professor Plum` |
 | Arb.cluedoWeapons() | Clue/Cluedo weapons, eg `Lead piping` |
 | Arb.cluedoLocations() | Clue/Cluedo locations, eg `Ballroom` |
 | Arb.cluedoAccusation() | Clue/Cluedo accusations, eg, `Mrs White / Billiards Room / Rope` |
+| Arb.monopolyProperty() | Random (US version) monopoly property with rent, price and color |
