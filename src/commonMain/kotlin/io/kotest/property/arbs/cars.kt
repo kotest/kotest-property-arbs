@@ -1,5 +1,8 @@
 package io.kotest.property.arbs
 
+import io.kotest.property.Arb
+import io.kotest.property.arbitrary.of
+
 data class Car(val value: String) {
   companion object {
     val all = listOf(
@@ -70,3 +73,5 @@ data class Car(val value: String) {
     )
   }
 }
+
+fun Arb.Companion.cars() = Arb.of(Car.all)
