@@ -7,8 +7,7 @@
 
 A collection of Kotest `Arb`'s for many different domains, such as stock prices, brand names, wine reviews, countries, tube stations and so on.
 
-Many of these arb's take real data sets and combine them in random ways to increase the number of samples. For example, the `FullName` arb takes a real set of first and last names and combines them randomly to produce full names.
-
+Many of these arb's take real data sets and combine them in random ways to increase the number of samples. For example, the `name` arb takes a real set of first and last names and combines them to produce random full names. Similarly, the `airJourney` arb randomly combines real airports and real airlines to create random journeys.
 
 | Arb  	| Details  	|
 |---	|---	|
