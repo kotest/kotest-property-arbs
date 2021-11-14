@@ -68,7 +68,6 @@ data class IceCreamFlavor(val value: String) {
       IceCreamFlavor("Honey Espresso"),
       IceCreamFlavor("Honey Vanilla"),
       IceCreamFlavor("Huckleberry"),
-      IceCreamFlavor("Huckleberry Pie"),
       IceCreamFlavor("Hulk's Cream"),
       IceCreamFlavor("Irish Coffee"),
       IceCreamFlavor("Irish Cream"),
@@ -132,7 +131,7 @@ data class IceCreamServing(
   val flavors: List<IceCreamFlavor>,
 )
 
-fun Arb.Companion.iceCreamServing() = Arb.bind(
+fun Arb.Companion.iceCreams() = Arb.bind(
   Arb.enum<ConeSize>(),
   Arb.enum<ConeType>(),
   Arb.list(Arb.iceCreamFlavors(), 1..5)

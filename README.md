@@ -33,6 +33,8 @@ Many of these arb's take real data sets and combine them in random ways to incre
 | Arb.wineRegions()	| Produces a random wine region, eg `Chassagne-Montrachet` |
 | Arb.wines() | Combines several wine details producers to return full wine objects |
 | Arb.wineReviews()  | Combines wine producer and adds in random review scores and usernames |
+| Arb.iceCreamFlavors() | Random ice cream flavors such as `Pistachio` or `Grape Escape` |
+| Arb.iceCreams() | Random ice cream servings with one or more flavors, cone type and size |
 |	|	|
 | Arb.tubeStation() | Produces randomly selected London underground tube stations |
 | Arb.tubeJourney() | Generates random journeys from a randomly selected start and end underground station |
@@ -48,3 +50,7 @@ Many of these arb's take real data sets and combine them in random ways to incre
 | Arb.chessPiece() | Chess piece with points |
 | Arb.chessSquare() | Chesss square with file A-H and rank 1-8 |
 | Arb.chessMove() | Chess move from square to square with captured piece if any. No validation is performed to check the move is legal. |
+| | |
+| Arb.transactions() | Transactions with a card number, card type, amount and transaction type |
+| | |
+| Arb.cars() | Random car manufacturers |
