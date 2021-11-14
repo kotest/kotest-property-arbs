@@ -5,7 +5,7 @@
 [<img src="https://img.shields.io/nexus/s/https/oss.sonatype.org/io.kotest.extensions/kotest-property-arbs.svg?label=latest%20snapshot&style=plastic"/>](https://oss.sonatype.org/content/repositories/snapshots/io.kotest.extensions/kotest-property-arbs)
 
 
-A collection of Kotest `Arb`'s for many different domains, such as stock prices, brand names, wine reviews, countries, tube stations and so on.
+A collection of `Arb`'s that work with [Kotest property testing](https://kotest.io/docs/proptest/property-based-testing.html) for many different domains, such as stock prices, brand names, wine reviews, countries, tube stations and so on.
 
 Many of these arb's take real data sets and combine them in random ways to increase the number of samples. For example, the `name` arb takes a real set of first and last names and combines them to produce random full names. Similarly, the `airJourney` arb randomly combines real airports and real airlines to create random journeys.
 
