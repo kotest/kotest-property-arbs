@@ -7,7 +7,7 @@ repositories {
 
 plugins {
    java
-   kotlin("multiplatform") version "1.5.31"
+   kotlin("multiplatform") version "1.6.0"
    `java-library`
    id("maven-publish")
    signing
