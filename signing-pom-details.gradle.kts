@@ -47,12 +47,12 @@ publishing {
       pom {
         name.set("Kotest")
         description.set("Kotlin Test Framework")
-        url.set("https://github.com/kotest/kotest-extensions-arrow")
+        url.set("https://github.com/kotest/kotest-property-arbs")
 
         scm {
-          connection.set("scm:git:https://github.com/kotest/kotest-extensions-arrow/")
+          connection.set("scm:git:https://github.com/kotest/kotest-property-arbs/")
           developerConnection.set("scm:git:https://github.com/sksamuel/")
-          url.set("https://github.com/kotest/kotest-extensions-arrow/")
+          url.set("https://github.com/kotest/kotest-property-arbs")
         }
 
         licenses {
