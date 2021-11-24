@@ -11,7 +11,7 @@ plugins {
    `java-library`
    id("maven-publish")
    signing
-   id("org.jetbrains.dokka") version "0.10.1"
+   id("org.jetbrains.dokka") version "1.6.0"
 }
 
 repositories {
