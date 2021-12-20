@@ -14,7 +14,7 @@ object Libs {
   object Kotest {
     private const val version = "5.0.3"
     const val property = "io.kotest:kotest-property:$version"
-    const val propertyDateTime = "io.kotest:kotest-property-datetime:$version"
+    const val propertyDateTime = "io.kotest:kotest-property-datetime:1.1.0"
     const val api = "io.kotest:kotest-framework-api:$version"
     const val junit5 = "io.kotest:kotest-runner-junit5:$version"
   }
