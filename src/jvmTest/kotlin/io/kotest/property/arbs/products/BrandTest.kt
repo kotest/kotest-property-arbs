@@ -9,9 +9,9 @@ import io.kotest.property.checkAll
 class BrandTest : FunSpec() {
   init {
     test("happy path") {
-      checkAll(1, PropTestConfig(2313123), Arb.brand()) { it shouldBe Brand("Hamco") }
-      checkAll(1, PropTestConfig(345), Arb.brand()) { it shouldBe Brand("Hidden Hitch") }
-      checkAll(1, PropTestConfig(9143), Arb.brand()) { it shouldBe Brand("BrakeBest Select Trailer Parts") }
+      checkAll(1, PropTestConfig(2313123), Arb.brand()) { it shouldBe Brand("Olivia Riegel") }
+      checkAll(1, PropTestConfig(345), Arb.brand()) { it shouldBe Brand("Ring Relief") }
+      checkAll(1, PropTestConfig(9143), Arb.brand()) { it shouldBe Brand("Cockpit USA") }
     }
   }
 }

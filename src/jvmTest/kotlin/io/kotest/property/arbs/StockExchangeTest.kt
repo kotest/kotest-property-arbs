@@ -12,11 +12,11 @@ class StockExchangeTest : FunSpec() {
     test("happy path") {
       checkAll(1, PropTestConfig(23523), Arb.stockExchanges()) {
         it shouldBe
-          StockExchange(name = "Palestine Securities Exchange", symbol = "PEX", country = Country.PalestinianTerritory)
+          StockExchange(name = "Kazakhstan Stock Exchange", symbol = "KASE", country = Country.Kazakhstan)
       }
       checkAll(1, PropTestConfig(8234), Arb.stockExchanges()) {
         it shouldBe
-          StockExchange(name = "BX Swiss", symbol = "BX", country = Country.Switzerland)
+          StockExchange(name = "Saudi Stock Exchange", symbol = "Tadawul", country = Country.SaudiArabia)
       }
     }
   }

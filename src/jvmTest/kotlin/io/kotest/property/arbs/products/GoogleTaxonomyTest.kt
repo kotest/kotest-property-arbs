@@ -10,7 +10,7 @@ class GoogleTaxonomyTest : FunSpec() {
   init {
     test("happy path") {
       checkAll(1, PropTestConfig(2313123), Arb.googleTaxonomy()) { tax ->
-        tax shouldBe GoogleTaxonomy("Food, Beverages & Tobacco > Food Items > Bakery > Ice Cream Cones")
+        tax shouldBe GoogleTaxonomy("Food, Beverages & Tobacco > Food Items > Fruits & Vegetables > Fresh & Frozen Vegetables > Malangas")
       }
     }
   }
