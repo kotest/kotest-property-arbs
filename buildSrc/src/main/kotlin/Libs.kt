@@ -6,7 +6,7 @@ object Libs {
   const val stdLib = "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlinVersion"
 
   object Kotlin {
-    private const val version = "1.6.0-RC3"
+    private const val version = "1.6.0"
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
     const val datetime = "org.jetbrains.kotlinx:kotlinx-datetime:0.3.1"
   }
