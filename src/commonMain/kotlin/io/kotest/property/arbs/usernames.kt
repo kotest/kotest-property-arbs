@@ -86,11 +86,12 @@ private val animals = listOf(
   "leopard"
 )
 
-fun Arb.Companion.usernames() = arbitrary { rs ->
-  listOf(
+fun Arb.Companion.usernames(): Arb<Username> = arbitrary { rs ->
+  val username = listOf(
     sizes.random(rs.random),
     colours.random(rs.random),
     animals.random(rs.random),
     rs.random.nextInt(1000, 9999)
   ).joinToString("_")
+  Username(username)
 }
