@@ -13,17 +13,7 @@ fun Arb.Companion.logins() = arbitrary { rs ->
     username = Arb.usernames().next(rs),
     location = geoLocation().next(rs),
     ipAddress = ipAddressV4().next(rs),
-    result = listOf(
-      "success",
-      "success",
-      "success",
-      "success",
-      "success",
-      "success",
-      "success",
-      "success",
-      "success",
-      "success",
+    result = if (rs.random.nextBoolean()) "success" else listOf(
       "invalid password",
       "unknown username",
       "forbidden ipaddress",
