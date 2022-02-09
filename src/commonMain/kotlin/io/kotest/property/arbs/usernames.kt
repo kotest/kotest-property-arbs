@@ -5,7 +5,7 @@ import io.kotest.property.arbitrary.arbitrary
 
 data class Username(val value: String)
 
-private val colours = listOf(
+val colours = listOf(
   "red",
   "orange",
   "yellow",
