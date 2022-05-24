@@ -2,13 +2,12 @@ object Libs {
 
   const val kotlinVersion = "1.6.10"
   const val org = "io.kotest.extensions"
-  const val dokkaVersion = "0.10.1"
   const val stdLib = "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlinVersion"
 
   object Kotlin {
     private const val version = "1.6.0"
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
-    const val datetime = "org.jetbrains.kotlinx:kotlinx-datetime:0.3.1"
+    const val datetime = ""
   }
 
   object Kotest {

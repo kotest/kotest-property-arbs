@@ -1,25 +1,19 @@
-repositories {
-   mavenCentral()
-   maven {
-      url = uri("https://oss.sonatype.org/content/repositories/snapshots")
-   }
-}
-
 plugins {
-   java
-   kotlin("multiplatform") version Libs.kotlinVersion
-   `java-library`
-   id("maven-publish")
-   signing
-   id("org.jetbrains.dokka") version Libs.dokkaVersion
+  kotlin("multiplatform") version Libs.kotlinVersion
+  `java-library`
+  `maven-publish`
+  signing
 }
 
 repositories {
-   mavenCentral()
-   mavenLocal()
+  mavenLocal()
+  mavenCentral()
+  maven {
+    url = uri("https://oss.sonatype.org/content/repositories/snapshots")
+  }
 }
 
-group = Libs.org
+group = "io.kotest.extensions"
 version = Ci.version
 
 kotlin {
@@ -40,16 +34,15 @@ kotlin {
   sourceSets {
     val commonMain by getting {
       dependencies {
-        implementation(Libs.stdLib)
-        api(Libs.Kotest.property)
-        api(Libs.Kotest.propertyDateTime)
-        implementation("com.univocity:univocity-parsers:2.9.1")
-        implementation(Libs.Kotlin.datetime)
+        api(libs.kotest.property)
+        api(libs.kotest.property.datetime)
+        implementation(libs.univocity.parsers)
+        implementation(libs.kotlinx.datetime)
       }
     }
     val jvmTest by getting {
       dependencies {
-        implementation(Libs.Kotest.junit5)
+        implementation(libs.kotest.runner.junit5)
       }
     }
   }
@@ -75,3 +68,8 @@ tasks.withType<Test> {
 }
 
 apply(from = "./publish-mpp.gradle.kts")
+
+// TODO: Remove me after https://youtrack.jetbrains.com/issue/KT-49109 is fixed
+rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin> {
+  rootProject.the<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension>().nodeVersion = "16.0.0"
+}
