@@ -1,5 +1,5 @@
 plugins {
-  kotlin("multiplatform") version Libs.kotlinVersion
+  kotlin("multiplatform").version("1.6.21")
   `java-library`
   `maven-publish`
   signing
@@ -13,8 +13,23 @@ repositories {
   }
 }
 
+// this is the version used for building snapshots
+// .GITHUB_RUN_NUMBER-snapshot will be appended
+val snapshotBase = "2.0.0"
+
+val githubRunNumber = System.getenv("GITHUB_RUN_NUMBER")
+
+val snapshotVersion = when (githubRunNumber) {
+  null -> "$snapshotBase-LOCAL"
+  else -> "$snapshotBase.${githubRunNumber}-SNAPSHOT"
+}
+
+val releaseVersion = System.getenv("RELEASE_VERSION")
+
+val isRelease = releaseVersion != null
+
 group = "io.kotest.extensions"
-version = Ci.version
+version = releaseVersion ?: snapshotVersion
 
 kotlin {
   targets {

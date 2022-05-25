@@ -1,6 +1,22 @@
 apply(plugin = "maven-publish")
 apply(plugin = "signing")
 
+// this is the version used for building snapshots
+// .GITHUB_RUN_NUMBER-snapshot will be appended
+val snapshotBase = "2.0.0"
+
+val githubRunNumber = System.getenv("GITHUB_RUN_NUMBER")
+
+val snapshotVersion = when (githubRunNumber) {
+  null -> "$snapshotBase-LOCAL"
+  else -> "$snapshotBase.${githubRunNumber}-SNAPSHOT"
+}
+
+val releaseVersion = System.getenv("RELEASE_VERSION")
+
+val isRelease = releaseVersion != null
+val version = releaseVersion ?: snapshotVersion
+
 repositories {
   mavenCentral()
 }
@@ -22,7 +38,7 @@ signing {
     @Suppress("UnstableApiUsage")
     useInMemoryPgpKeys(signingKey, signingPassword)
   }
-  if (Ci.isRelease) {
+  if (isRelease) {
     sign(publications)
   }
 }
@@ -33,7 +49,7 @@ publishing {
       val releasesRepoUrl = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
       val snapshotsRepoUrl = uri("https://oss.sonatype.org/content/repositories/snapshots/")
       name = "deploy"
-      url = if (Ci.isRelease) releasesRepoUrl else snapshotsRepoUrl
+      url = if (isRelease) releasesRepoUrl else snapshotsRepoUrl
       credentials {
         username = java.lang.System.getenv("OSSRH_USERNAME") ?: ""
         password = java.lang.System.getenv("OSSRH_PASSWORD") ?: ""
