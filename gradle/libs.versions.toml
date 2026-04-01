@@ -9,6 +9,6 @@ kotest-property = { module = "io.kotest:kotest-property", version.ref = "kotest"
 kotest-property-datetime = { module = "io.kotest.extensions:kotest-property-datetime", version = "1.1.0" }
 
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version = "1.7.3" }
-kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = "0.4.0" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = "0.7.1" }
 
 univocity-parsers = { module = "com.univocity:univocity-parsers", version = "2.9.1" }
