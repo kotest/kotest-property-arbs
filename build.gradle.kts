@@ -51,7 +51,6 @@ kotlin {
       dependencies {
         api(libs.kotest.property)
         api(libs.kotest.property.datetime)
-        implementation(libs.univocity.parsers)
         implementation(libs.kotlinx.datetime)
       }
     }
