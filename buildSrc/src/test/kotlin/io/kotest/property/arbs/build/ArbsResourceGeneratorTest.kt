@@ -88,4 +88,41 @@ class ArbsResourceGeneratorTest {
         assertTrue(firstIdx in 0 until secondIdx)
         assertTrue(secondIdx in 0 until thirdIdx)
     }
+
+    @Test
+    fun `tube stations csv generates List of Station with correct fields and order`() {
+        val resourcesRoot = File(tempDir, "resources").apply { mkdirs() }
+        val outputRoot = File(tempDir, "out").apply { mkdirs() }
+        File(resourcesRoot, "tube").mkdirs()
+        File(resourcesRoot, "tube/stations.csv").writeText(
+            """
+            "id","latitude","longitude","name","display_name","zone","total_lines","rail"
+            1,51.5028,-0.2801,"Acton Town","Acton<br />Town",3,2,0
+            2,51.5143,-0.0755,"Aldgate",NULL,1,2,0
+            """.trimIndent() + "\n"
+        )
+
+        ArbsResourceGenerator(resourcesRoot, outputRoot).generate()
+
+        val generated = File(
+            outputRoot,
+            "io/kotest/property/arbs/generated/tube/TubeStationsData.kt"
+        )
+        assertTrue(generated.exists(), "expected generated file at $generated")
+        val text = generated.readText()
+        assertTrue(text.contains("package io.kotest.property.arbs.generated.tube"))
+        assertTrue(text.contains("import io.kotest.property.arbs.tube.Station"))
+        assertTrue(text.contains("internal val tubeStationsData: List<Station> = listOf("))
+        // First record, in column order id, latitude, longitude, name, zone, lines, rail.
+        assertTrue(
+            text.contains("Station(1L, 51.5028, -0.2801, \"Acton Town\", 3.0, 2, 0)"),
+            "first row missing or wrong; got:\n$text"
+        )
+        assertTrue(
+            text.contains("Station(2L, 51.5143, -0.0755, \"Aldgate\", 1.0, 2, 0)"),
+            "second row missing or wrong; got:\n$text"
+        )
+        // Order preserved.
+        assertTrue(text.indexOf("Acton Town") < text.indexOf("Aldgate"))
+    }
 }
