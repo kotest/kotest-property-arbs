@@ -63,6 +63,15 @@ kotlin {
   }
 }
 
+val generateArbResources = tasks.register<io.kotest.property.arbs.build.GenerateArbResourcesTask>("generateArbResources") {
+    resourcesDir.set(layout.projectDirectory.dir("src/commonMain/resources"))
+    outputDir.set(layout.buildDirectory.dir("generated/sources/arbs-data/commonMain/kotlin"))
+}
+
+kotlin.sourceSets.named("commonMain") {
+    kotlin.srcDir(generateArbResources.map { it.outputDir })
+}
+
 tasks.withType<Test> {
   useJUnitPlatform()
   filter {
