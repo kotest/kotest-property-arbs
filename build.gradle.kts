@@ -59,6 +59,11 @@ kotlin {
         implementation(libs.kotest.runner.junit5)
       }
     }
+    val jsTest by getting {
+      dependencies {
+        implementation(kotlin("test-js"))
+      }
+    }
   }
 }
 
