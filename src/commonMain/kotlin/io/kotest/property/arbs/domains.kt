@@ -2,6 +2,7 @@ package io.kotest.property.arbs
 
 import io.kotest.property.Arb
 import io.kotest.property.arbitrary.arbitrary
+import io.kotest.property.arbs.generated.countryTldsData
 
 /**
  * Generates domains where the domain name is a random string with the given length,
@@ -12,11 +13,10 @@ import io.kotest.property.arbitrary.arbitrary
 fun Arb.Companion.domain(nameLength: IntRange = 3..20): Arb<Domain> = arbitrary { rs ->
   val prefix = prefixes.random(rs.random)
   val name = List(rs.random.nextInt(nameLength.first, nameLength.last)) { ('a'..'z').random(rs.random) }.joinToString("")
-  val domain = listOfNotNull(prefix, name, tlds.random(rs.random)).joinToString(".")
+  val domain = listOfNotNull(prefix, name, countryTldsData.random(rs.random)).joinToString(".")
   Domain(domain)
 }
 
 private val prefixes = listOf("www", "www2", "cdn", null)
-private val tlds = loadResourceAsLines("/country_tlds.txt")
 
 data class Domain(val value: String)
