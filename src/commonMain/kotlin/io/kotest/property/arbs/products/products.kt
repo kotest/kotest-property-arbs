@@ -3,7 +3,6 @@ package io.kotest.property.arbs.products
 import io.kotest.property.Arb
 import io.kotest.property.arbitrary.flatMap
 import io.kotest.property.arbitrary.map
-import io.kotest.property.arbitrary.take
 import io.kotest.property.arbs.Color
 import io.kotest.property.arbs.color
 import kotlin.random.Random
@@ -63,8 +62,4 @@ fun Arb.Companion.products() = color().flatMap { color ->
       )
     }
   }
-}
-
-fun main() {
-  Arb.products().take(100).forEach(::println)
 }

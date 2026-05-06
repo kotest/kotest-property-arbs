@@ -3,11 +3,8 @@ package io.kotest.property.arbs.products
 import io.kotest.property.Arb
 import io.kotest.property.arbitrary.map
 import io.kotest.property.arbitrary.of
-import io.kotest.property.arbs.loadResourceAsLines
-
-private val brands = lazy { loadResourceAsLines("/brands.txt") }
+import io.kotest.property.arbs.generated.brandsData
 
 data class Brand(val value: String)
 
-fun Arb.Companion.brand() = Arb.of(brands.value).map(::Brand)
-
+fun Arb.Companion.brand() = Arb.of(brandsData).map(::Brand)
