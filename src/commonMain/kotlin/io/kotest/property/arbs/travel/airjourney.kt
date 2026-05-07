@@ -2,7 +2,7 @@ package io.kotest.property.arbs.travel
 
 import io.kotest.property.Arb
 import io.kotest.property.arbitrary.bind
-import io.kotest.property.arbitrary.numericDoubles
+import io.kotest.property.arbitrary.numericDouble
 import io.kotest.property.kotlinx.datetime.datetime
 import kotlinx.datetime.LocalDateTime
 
@@ -21,7 +21,7 @@ fun Arb.Companion.airJourney() = Arb.bind(
   Arb.datetime(),
   Arb.datetime(),
   Arb.airline(),
-  Arb.numericDoubles(100.0, 5000.0),
+  Arb.numericDouble(100.0, 5000.0),
 ) { departure, arrival, dtime, atime, airline, distance ->
   AirJourney(departure, arrival, dtime, atime, distance, airline)
 }
