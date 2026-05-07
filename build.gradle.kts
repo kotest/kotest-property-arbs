@@ -1,16 +1,11 @@
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
+
 plugins {
   kotlin("multiplatform").version("2.0.21")
   `java-library`
   `maven-publish`
   signing
-}
-
-repositories {
-  mavenLocal()
-  mavenCentral()
-  maven {
-    url = uri("https://oss.sonatype.org/content/repositories/snapshots")
-  }
+  alias(libs.plugins.nmcp)
 }
 
 // this is the version used for building snapshots
@@ -32,18 +27,16 @@ group = "io.kotest.extensions"
 version = releaseVersion ?: snapshotVersion
 
 kotlin {
-  targets {
-    jvm {
-      compilations.all {
-        kotlinOptions {
-          jvmTarget = "1.8"
-        }
-      }
-    }
-    js {
-      browser()
-      nodejs()
-    }
+
+  jvm {}
+  js {
+    browser()
+    nodejs()
+  }
+
+  compilerOptions {
+    apiVersion = KotlinVersion.KOTLIN_2_0
+    languageVersion = KotlinVersion.KOTLIN_2_0
   }
 
   sourceSets {
@@ -67,13 +60,14 @@ kotlin {
   }
 }
 
-val generateArbResources = tasks.register<io.kotest.property.arbs.build.GenerateArbResourcesTask>("generateArbResources") {
+val generateArbResources =
+  tasks.register<io.kotest.property.arbs.build.GenerateArbResourcesTask>("generateArbResources") {
     resourcesDir.set(layout.projectDirectory.dir("src/commonMain/resources"))
     outputDir.set(layout.buildDirectory.dir("generated/sources/arbs-data/commonMain/kotlin"))
-}
+  }
 
 kotlin.sourceSets.named("commonMain") {
-    kotlin.srcDir(generateArbResources.map { it.outputDir })
+  kotlin.srcDir(generateArbResources.map { it.outputDir })
 }
 
 tasks.withType<Test> {
@@ -94,6 +88,41 @@ tasks.withType<Test> {
     exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
   }
 }
+
+group = "com.sksamuel.cohort"
+version = Ci.version
+
+//mavenPublishing {
+//  publishToMavenCentral(automaticRelease = true)
+//  signAllPublications()
+//  pom {
+//    name.set("Kotest")
+//    description.set("Kotlin Test Framework")
+//    url.set("https://github.com/kotest/kotest-property-arbs")
+//
+//    scm {
+//      connection.set("scm:git:https://github.com/kotest/kotest-property-arbs/")
+//      developerConnection.set("scm:git:https://github.com/sksamuel/")
+//      url.set("https://github.com/kotest/kotest-property-arbs")
+//    }
+//
+//    licenses {
+//      license {
+//        name.set("Apache-2.0")
+//        url.set("https://opensource.org/licenses/Apache-2.0")
+//      }
+//    }
+//
+//    developers {
+//      developer {
+//        id.set("sksamuel")
+//        name.set("Stephen Samuel")
+//        email.set("sam@sksamuel.com")
+//      }
+//
+//    }
+//  }
+//}
 
 // TODO: Remove me after https://youtrack.jetbrains.com/issue/KT-49109 is fixed
 rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin> {

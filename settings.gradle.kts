@@ -4,6 +4,7 @@ rootProject.name = "kotest-property-arbs"
 
 pluginManagement {
   repositories {
+    mavenLocal()
     mavenCentral()
     gradlePluginPortal()
   }
