@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.buildtools.api.ExperimentalBuildToolsApi
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
 plugins {
@@ -12,18 +14,16 @@ plugins {
 // .GITHUB_RUN_NUMBER-snapshot will be appended
 val snapshotBase = "3.0.0"
 
-val githubRunNumber = System.getenv("GITHUB_RUN_NUMBER")
-
-val snapshotVersion = when (githubRunNumber) {
+val snapshotVersion = when (val githubRunNumber = System.getenv("GITHUB_RUN_NUMBER")) {
   null -> "$snapshotBase-LOCAL"
   else -> "$snapshotBase.${githubRunNumber}-SNAPSHOT"
 }
 
-val releaseVersion = System.getenv("RELEASE_VERSION")
+val releaseVersion: String? = System.getenv("RELEASE_VERSION")
 
 val isRelease = releaseVersion != null
 
-group = "io.kotest.extensions"
+group = "io.kotest"
 version = releaseVersion ?: snapshotVersion
 
 kotlin {
@@ -34,6 +34,7 @@ kotlin {
     nodejs()
   }
 
+  @OptIn(ExperimentalKotlinGradlePluginApi::class, ExperimentalBuildToolsApi::class)
   compilerOptions {
     apiVersion = KotlinVersion.KOTLIN_2_0
     languageVersion = KotlinVersion.KOTLIN_2_0
