@@ -130,3 +130,15 @@ publishing {
     }
   }
 }
+
+pluginManager.withPlugin("org.jetbrains.kotlin.multiplatform") {
+  val javadocJar by tasks.registering(Jar::class) {
+    group = JavaBasePlugin.DOCUMENTATION_GROUP
+    description = "Create Javadoc JAR"
+    archiveClassifier.set("javadoc")
+  }
+
+  publishing.publications.withType<MavenPublication>().configureEach {
+    artifact(javadocJar)
+  }
+}
