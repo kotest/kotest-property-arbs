@@ -1,5 +1,5 @@
 plugins {
-  kotlin("multiplatform").version("1.6.21")
+  kotlin("multiplatform").version("2.0.21")
   `java-library`
   `maven-publish`
   signing
@@ -15,7 +15,7 @@ repositories {
 
 // this is the version used for building snapshots
 // .GITHUB_RUN_NUMBER-snapshot will be appended
-val snapshotBase = "2.0.0"
+val snapshotBase = "3.0.0"
 
 val githubRunNumber = System.getenv("GITHUB_RUN_NUMBER")
 
@@ -94,8 +94,6 @@ tasks.withType<Test> {
     exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
   }
 }
-
-apply(from = "./publish-mpp.gradle.kts")
 
 // TODO: Remove me after https://youtrack.jetbrains.com/issue/KT-49109 is fixed
 rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin> {
