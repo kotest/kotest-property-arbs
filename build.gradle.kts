@@ -71,6 +71,14 @@ kotlin.sourceSets.named("commonMain") {
   kotlin.srcDir(generateArbResources.map { it.outputDir })
 }
 
+tasks.named("build") {
+  dependsOn(generateArbResources)
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask<*>>().configureEach {
+  dependsOn(generateArbResources)
+}
+
 tasks.withType<Test> {
   useJUnitPlatform()
   filter {
@@ -119,7 +127,6 @@ publishing {
           name.set("Stephen Samuel")
           email.set("sam@sksamuel.com")
         }
-
       }
     }
   }
