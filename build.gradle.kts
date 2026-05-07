@@ -5,8 +5,8 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 plugins {
   kotlin("multiplatform").version("2.0.21")
   `java-library`
-  `maven-publish`
   signing
+  `maven-publish`
   alias(libs.plugins.nmcp)
 }
 
@@ -93,34 +93,34 @@ tasks.withType<Test> {
 group = "com.sksamuel.cohort"
 version = Ci.version
 
-//mavenPublishing {
-//  publishToMavenCentral(automaticRelease = true)
-//  signAllPublications()
-//  pom {
-//    name.set("Kotest")
-//    description.set("Kotlin Test Framework")
-//    url.set("https://github.com/kotest/kotest-property-arbs")
-//
-//    scm {
-//      connection.set("scm:git:https://github.com/kotest/kotest-property-arbs/")
-//      developerConnection.set("scm:git:https://github.com/sksamuel/")
-//      url.set("https://github.com/kotest/kotest-property-arbs")
-//    }
-//
-//    licenses {
-//      license {
-//        name.set("Apache-2.0")
-//        url.set("https://opensource.org/licenses/Apache-2.0")
-//      }
-//    }
-//
-//    developers {
-//      developer {
-//        id.set("sksamuel")
-//        name.set("Stephen Samuel")
-//        email.set("sam@sksamuel.com")
-//      }
-//
-//    }
-//  }
-//}
+publishing {
+  publications.withType<MavenPublication>().configureEach {
+    pom {
+      name.set("Kotest")
+      description.set("Kotlin Test Framework")
+      url.set("https://github.com/kotest/kotest-property-arbs")
+
+      scm {
+        connection.set("scm:git:https://github.com/kotest/kotest-property-arbs/")
+        developerConnection.set("scm:git:https://github.com/sksamuel/")
+        url.set("https://github.com/kotest/kotest-property-arbs")
+      }
+
+      licenses {
+        license {
+          name.set("Apache-2.0")
+          url.set("https://opensource.org/licenses/Apache-2.0")
+        }
+      }
+
+      developers {
+        developer {
+          id.set("sksamuel")
+          name.set("Stephen Samuel")
+          email.set("sam@sksamuel.com")
+        }
+
+      }
+    }
+  }
+}
