@@ -14,7 +14,11 @@
 .mtj.tmp/
 
 *.iml
-build/
+
+# Gradle build outputs — anchored so they don't match the
+# io.kotest.property.arbs.build package directory in buildSrc.
+/build/
+buildSrc/build/
 
 # Package Files #
 *.war

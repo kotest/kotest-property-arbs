@@ -51,7 +51,6 @@ kotlin {
       dependencies {
         api(libs.kotest.property)
         api(libs.kotest.property.datetime)
-        implementation(libs.univocity.parsers)
         implementation(libs.kotlinx.datetime)
       }
     }
@@ -60,7 +59,21 @@ kotlin {
         implementation(libs.kotest.runner.junit5)
       }
     }
+    val jsTest by getting {
+      dependencies {
+        implementation(kotlin("test-js"))
+      }
+    }
   }
+}
+
+val generateArbResources = tasks.register<io.kotest.property.arbs.build.GenerateArbResourcesTask>("generateArbResources") {
+    resourcesDir.set(layout.projectDirectory.dir("src/commonMain/resources"))
+    outputDir.set(layout.buildDirectory.dir("generated/sources/arbs-data/commonMain/kotlin"))
+}
+
+kotlin.sourceSets.named("commonMain") {
+    kotlin.srcDir(generateArbResources.map { it.outputDir })
 }
 
 tasks.withType<Test> {
