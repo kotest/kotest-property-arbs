@@ -47,19 +47,19 @@ kotlin {
   }
 
   sourceSets {
-    val commonMain by getting {
+    commonMain {
       dependencies {
         api(libs.kotest.property)
         api(libs.kotest.property.datetime)
         implementation(libs.kotlinx.datetime)
       }
     }
-    val jvmTest by getting {
+    jvmTest {
       dependencies {
         implementation(libs.kotest.runner.junit5)
       }
     }
-    val jsTest by getting {
+    jsTest {
       dependencies {
         implementation(kotlin("test-js"))
       }
