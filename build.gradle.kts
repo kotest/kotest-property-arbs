@@ -3,8 +3,7 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
 plugins {
-  kotlin("multiplatform").version("2.0.21")
-  `java-library`
+  kotlin("multiplatform").version("2.2.21")
   signing
   `maven-publish`
   alias(libs.plugins.nmcp)
@@ -36,8 +35,8 @@ kotlin {
 
   @OptIn(ExperimentalKotlinGradlePluginApi::class, ExperimentalBuildToolsApi::class)
   compilerOptions {
-    apiVersion = KotlinVersion.KOTLIN_2_0
-    languageVersion = KotlinVersion.KOTLIN_2_0
+    apiVersion = KotlinVersion.KOTLIN_2_2
+    languageVersion = KotlinVersion.KOTLIN_2_2
   }
 
   sourceSets {
