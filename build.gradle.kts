@@ -7,6 +7,7 @@ plugins {
   signing
   `maven-publish`
   alias(libs.plugins.nmcp)
+  alias(libs.plugins.nmcpAggregation)
 }
 
 group = "io.kotest"
@@ -145,13 +146,22 @@ tasks.withType<AbstractPublishToMaven>().configureEach {
   mustRunAfter(tasks.withType<Sign>())
 }
 
-nmcp {
-  publishAllPublicationsToCentralPortal {
-    username = providers.environmentVariable("NEW_MAVEN_CENTRAL_USERNAME")
-    password = providers.environmentVariable("NEW_MAVEN_CENTRAL_PASSWORD")
+nmcpAggregation {
+  centralPortal {
+    username.set(System.getenv("NEW_MAVEN_CENTRAL_USERNAME"))
+    password.set(System.getenv("NEW_MAVEN_CENTRAL_PASSWORD"))
     publishingType = "USER_MANAGED"
+    publicationName = "Kotest ${Ci.version}"
   }
 }
+
+//nmcp {
+//  publishAllPublicationsToCentralPortal {
+//    username = providers.environmentVariable("NEW_MAVEN_CENTRAL_USERNAME")
+//    password = providers.environmentVariable("NEW_MAVEN_CENTRAL_PASSWORD")
+//    publishingType = "USER_MANAGED"
+//  }
+//}
 
 //region Fix Gradle error Reason: Task <publish> uses this output of task <sign> without declaring an explicit or implicit dependency.
 // https://github.com/gradle/gradle/issues/26091

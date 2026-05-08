@@ -30,7 +30,7 @@ jobs:
         run: ./gradlew check --scan
 
       - name: publish snapshots
-        run: ./gradlew publish
+        run: ./gradlew publishAggregationToCentralPortalSnapshots
 
       - name: Bundle the build report
         if: failure()
