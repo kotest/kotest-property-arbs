@@ -163,6 +163,10 @@ nmcpAggregation {
 //  }
 //}
 
+dependencies {
+  nmcpAggregation(rootProject)
+}
+
 //region Fix Gradle error Reason: Task <publish> uses this output of task <sign> without declaring an explicit or implicit dependency.
 // https://github.com/gradle/gradle/issues/26091
 tasks.withType<AbstractPublishToMaven>().configureEach {
