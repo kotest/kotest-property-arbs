@@ -10,10 +10,11 @@ on:
 
 env:
   GRADLE_OPTS: -Dorg.gradle.configureondemand=true -Dorg.gradle.parallel=false -Dkotlin.incremental=false -Dorg.gradle.jvmargs="-Xmx3g -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8"
-  OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-  OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
   ORG_GRADLE_PROJECT_signingKey: ${{ secrets.SIGNING_KEY }}
   ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.SIGNING_PASSWORD }}
+  NEW_MAVEN_CENTRAL_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+  NEW_MAVEN_CENTRAL_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+
 
 jobs:
   linux:

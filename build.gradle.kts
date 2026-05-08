@@ -127,8 +127,8 @@ pluginManager.withPlugin("org.jetbrains.kotlin.multiplatform") {
   }
 }
 
-val signingKey: String? = System.getenv("SIGNING_KEY")
-val signingPassword: String? = System.getenv("SIGNING_PASSWORD")
+val signingKey: String? by project
+val signingPassword: String? by project
 
 if (signingKey != null && signingPassword != null) {
   signing {
@@ -145,8 +145,8 @@ tasks.withType<AbstractPublishToMaven>().configureEach {
 
 nmcp {
   publishAllPublicationsToCentralPortal {
-    username = providers.environmentVariable("OSSRH_USERNAME")
-    password = providers.environmentVariable("OSSRH_PASSWORD")
+    username = providers.environmentVariable("NEW_MAVEN_CENTRAL_USERNAME")
+    password = providers.environmentVariable("NEW_MAVEN_CENTRAL_PASSWORD")
     publishingType = "USER_MANAGED"
   }
 }

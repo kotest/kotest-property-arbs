@@ -12,14 +12,13 @@ on:
         required: true
         default: 'master'
 
-
 env:
   GRADLE_OPTS: -Dorg.gradle.configureondemand=true -Dorg.gradle.parallel=false -Dkotlin.incremental=false -Dorg.gradle.jvmargs="-Xmx3g -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8"
   RELEASE_VERSION: ${{ inputs.version }}
-  OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-  OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
-  GPG_SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
-  GPG_SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
+  ORG_GRADLE_PROJECT_signingKey: ${{ secrets.SIGNING_KEY }}
+  ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.SIGNING_PASSWORD }}
+  NEW_MAVEN_CENTRAL_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+  NEW_MAVEN_CENTRAL_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
 
 jobs:
   publish:
