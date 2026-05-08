@@ -6,6 +6,7 @@ plugins {
   kotlin("multiplatform").version("2.2.21")
   signing
   `maven-publish`
+  alias(libs.plugins.nmcp)
   alias(libs.plugins.nmcpAggregation)
 }
 
@@ -130,17 +131,16 @@ pluginManager.withPlugin("org.jetbrains.kotlin.multiplatform") {
 val signingKey: String? by project
 val signingPassword: String? by project
 
-if (signingKey.isNullOrBlank() && !signingPassword.isNullOrBlank()) {
+if (!signingKey.isNullOrBlank() && !signingPassword.isNullOrBlank()) {
   signing {
-    useGpgCmd()
     useInMemoryPgpKeys(signingKey, signingPassword)
     sign(publishing.publications)
     setRequired { Ci.isRelease } // only require signing when releasing
   }
 }
 
-// Workaround for https://youtrack.jetbrains.com/issue/KT-46466 — KMP publish tasks
-// don't declare an explicit dependency on Sign tasks, causing flaky/failed publishes.
+// Workaround for https://github.com/gradle/gradle/issues/26091 — publish tasks
+// don't declare an explicit dependency on Sign tasks.
 tasks.withType<AbstractPublishToMaven>().configureEach {
   mustRunAfter(tasks.withType<Sign>())
 }
@@ -154,22 +154,6 @@ nmcpAggregation {
   }
 }
 
-//nmcp {
-//  publishAllPublicationsToCentralPortal {
-//    username = providers.environmentVariable("NEW_MAVEN_CENTRAL_USERNAME")
-//    password = providers.environmentVariable("NEW_MAVEN_CENTRAL_PASSWORD")
-//    publishingType = "USER_MANAGED"
-//  }
-//}
-
 dependencies {
   nmcpAggregation(rootProject)
 }
-
-//region Fix Gradle error Reason: Task <publish> uses this output of task <sign> without declaring an explicit or implicit dependency.
-// https://github.com/gradle/gradle/issues/26091
-tasks.withType<AbstractPublishToMaven>().configureEach {
-  val signingTasks = tasks.withType<Sign>()
-  mustRunAfter(signingTasks)
-}
-//endregion
