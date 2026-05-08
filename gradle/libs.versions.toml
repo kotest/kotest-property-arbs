@@ -9,7 +9,7 @@ kotlin-core-libaries-version = "2.3.20" # the std lib version
 kotlin-language-version = "2.2.0" # the minimum version we support and what is written into kotlin metadata
 
 runtime-kotest = "4.2.0" # intellij plugin
-test-kotest = "5.9.1"# intellij plugin
+test-kotest = "6.1.11"# intellij plugin
 
 # https://developer.android.com/kotlin/multiplatform/plugin
 agp = "9.0.0-alpha06" # latest supported by IntelliJ 2026.1
