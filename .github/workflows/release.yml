@@ -38,4 +38,4 @@ jobs:
           distribution: 'temurin'
 
       - name: deploy to central portal
-        run: ./gradlew publishAllPublicationsToCentralPortal
+        run: ./gradlew publishAggregationToCentralPortal
