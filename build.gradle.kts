@@ -9,21 +9,8 @@ plugins {
   alias(libs.plugins.nmcp)
 }
 
-// this is the version used for building snapshots
-// .GITHUB_RUN_NUMBER-snapshot will be appended
-val snapshotBase = "3.0.0"
-
-val snapshotVersion = when (val githubRunNumber = System.getenv("GITHUB_RUN_NUMBER")) {
-  null -> "$snapshotBase-LOCAL"
-  else -> "$snapshotBase.${githubRunNumber}-SNAPSHOT"
-}
-
-val releaseVersion: String? = System.getenv("RELEASE_VERSION")
-
-val isRelease = releaseVersion != null
-
 group = "io.kotest"
-version = releaseVersion ?: snapshotVersion
+version = Ci.version
 
 kotlin {
 
@@ -97,14 +84,11 @@ tasks.withType<Test> {
   }
 }
 
-group = "com.sksamuel.cohort"
-version = Ci.version
-
 publishing {
   publications.withType<MavenPublication>().configureEach {
     pom {
-      name.set("Kotest")
-      description.set("Kotlin Test Framework")
+      name.set("kotest-property-arbs")
+      description.set("Kotest property test arbitraries (people, places, products, ...)")
       url.set("https://github.com/kotest/kotest-property-arbs")
 
       scm {
@@ -140,5 +124,29 @@ pluginManager.withPlugin("org.jetbrains.kotlin.multiplatform") {
 
   publishing.publications.withType<MavenPublication>().configureEach {
     artifact(javadocJar)
+  }
+}
+
+val signingKey: String? = System.getenv("GPG_SIGNING_KEY")
+val signingPassword: String? = System.getenv("GPG_SIGNING_PASSWORD")
+
+if (signingKey != null && signingPassword != null) {
+  signing {
+    useInMemoryPgpKeys(signingKey, signingPassword)
+    sign(publishing.publications)
+  }
+}
+
+// Workaround for https://youtrack.jetbrains.com/issue/KT-46466 — KMP publish tasks
+// don't declare an explicit dependency on Sign tasks, causing flaky/failed publishes.
+tasks.withType<AbstractPublishToMaven>().configureEach {
+  mustRunAfter(tasks.withType<Sign>())
+}
+
+nmcp {
+  publishAllPublicationsToCentralPortal {
+    username = providers.environmentVariable("OSSRH_USERNAME")
+    password = providers.environmentVariable("OSSRH_PASSWORD")
+    publishingType = "USER_MANAGED"
   }
 }
