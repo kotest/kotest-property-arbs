@@ -130,10 +130,12 @@ pluginManager.withPlugin("org.jetbrains.kotlin.multiplatform") {
 val signingKey: String? by project
 val signingPassword: String? by project
 
-if (signingKey != null && signingPassword != null) {
+if (signingKey.isNullOrBlank() && !signingPassword.isNullOrBlank()) {
   signing {
+    useGpgCmd()
     useInMemoryPgpKeys(signingKey, signingPassword)
     sign(publishing.publications)
+    setRequired { Ci.isRelease } // only require signing when releasing
   }
 }
 

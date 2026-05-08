@@ -15,7 +15,6 @@ env:
   NEW_MAVEN_CENTRAL_USERNAME: ${{ secrets.OSSRH_USERNAME }}
   NEW_MAVEN_CENTRAL_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
 
-
 jobs:
   linux:
     runs-on: ubuntu-latest
