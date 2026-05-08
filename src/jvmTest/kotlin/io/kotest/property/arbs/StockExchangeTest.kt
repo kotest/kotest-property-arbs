@@ -1,5 +1,6 @@
 package io.kotest.property.arbs
 
+import io.kotest.common.ExperimentalKotest
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
@@ -7,6 +8,7 @@ import io.kotest.property.PropTestConfig
 import io.kotest.property.arbs.geo.Country
 import io.kotest.property.checkAll
 
+@OptIn(ExperimentalKotest::class)
 class StockExchangeTest : FunSpec() {
   init {
     test("happy path") {
