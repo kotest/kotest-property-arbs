@@ -127,8 +127,8 @@ pluginManager.withPlugin("org.jetbrains.kotlin.multiplatform") {
   }
 }
 
-val signingKey: String? = System.getenv("GPG_SIGNING_KEY")
-val signingPassword: String? = System.getenv("GPG_SIGNING_PASSWORD")
+val signingKey: String? = System.getenv("SIGNING_KEY")
+val signingPassword: String? = System.getenv("SIGNING_PASSWORD")
 
 if (signingKey != null && signingPassword != null) {
   signing {
