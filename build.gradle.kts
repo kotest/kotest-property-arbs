@@ -6,7 +6,6 @@ plugins {
   kotlin("multiplatform").version("2.2.21")
   signing
   `maven-publish`
-  alias(libs.plugins.nmcp)
   alias(libs.plugins.nmcpAggregation)
 }
 
