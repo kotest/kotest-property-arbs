@@ -147,8 +147,8 @@ tasks.withType<AbstractPublishToMaven>().configureEach {
 
 nmcpAggregation {
   centralPortal {
-    username.set(providers.environmentVariable("OSSRH_USERNAME"))
-    password.set(providers.environmentVariable("OSSRH_PASSWORD"))
+    username.set(providers.environmentVariable("NEW_MAVEN_CENTRAL_USERNAME"))
+    password.set(providers.environmentVariable("NEW_MAVEN_CENTRAL_PASSWORD"))
     publishingType = "USER_MANAGED"
     publicationName = "Kotest ${Ci.version}"
   }
