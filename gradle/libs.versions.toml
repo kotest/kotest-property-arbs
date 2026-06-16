@@ -6,7 +6,7 @@ nmcp = "1.5.0"
 kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
 kotest-property = { module = "io.kotest:kotest-property", version.ref = "kotest" }
 kotest-property-datetime = { module = "io.kotest:kotest-property-datetime", version.ref = "kotest" }
-kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = "0.6.2" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = "0.8.0" }
 
 [plugins]
 nmcp = { id = "com.gradleup.nmcp", version.ref = "nmcp" }
