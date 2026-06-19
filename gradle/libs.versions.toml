@@ -1,5 +1,5 @@
 [versions]
-kotest = "6.2.0"
+kotest = "6.2.1"
 nmcp = "1.5.0"
 
 [libraries]
